@@ -1,0 +1,33 @@
+<div class="user-details-container">
+<button (click)="goBack()"
+        title="Back"
+        class="back-btn">back</button>
+
+        <div class="user-details" *ngIf="!hasError; else errorMessage">
+                <app-user-card [user]="user"
+                               [isUserDetails]="true"></app-user-card>
+
+                <p>Repositories:</p>
+                <div class="repo-wrapper"
+                     *ngFor="let repo of repositories">
+                     <div>
+                             <b>name:</b> {{ repo?.name }}
+                     </div>
+                     <div>
+                             <b>description:</b> {{ repo?.description || 'N/A' }}
+                     </div>
+                     <div>
+                             <b>private:</b> {{ repo?.private }}
+                     </div>
+                     <a [href]="repo?.html_url" target="_blank" title="Repository">visit</a>
+                </div>
+        </div>
+        
+        <ng-template #errorMessage>
+                <div class="error-container">
+                    There was an error fetching the data.
+                    Please try again later.
+                </div>
+        </ng-template>
+</div>
+

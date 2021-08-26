@@ -1,0 +1,31 @@
+<div class="users-container"
+     *ngIf="!hasError; else errorMessage">
+
+     <input type="text"
+            #searchInput
+            class="search-input"
+            placeholder="Type to filter.."
+            (keyup)="filterUsers()"/>
+
+    <ng-container *ngIf="visibleUsers?.length else nosuersfound">
+        <app-user-card *ngFor="let user of visibleUsers"
+                        [user]="user"
+                        (click)="goToUserDetails(user?.login)"></app-user-card>
+    </ng-container>
+
+    <ng-template #nosuersfound>
+        <div class="no-found-users">
+            <b>No Users found</b>
+        <button (click)="resetFiltering()"
+                title="Reset"
+                class="reset-btn">reset</button>
+        </div>
+    </ng-template>
+</div>
+
+<ng-template #errorMessage>
+    <div class="error-container">
+        There was an error fetching the data.
+        Please try again later.
+    </div>
+</ng-template>

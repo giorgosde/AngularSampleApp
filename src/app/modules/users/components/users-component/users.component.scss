@@ -1,0 +1,55 @@
+@mixin container {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 15px 50px;
+    background: #F5F5F5;
+    max-height: 550px;
+    border-radius: 4px;
+  }
+
+.users-container {
+    @include container;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+    app-user-card {
+        margin: 10px 0;
+        display: block;
+    }
+
+    .no-found-users {
+      display: block;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .reset-btn {
+      display: block;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+}
+
+.error-container {
+    @include container;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;    
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+  background: lightgrey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 5px;
+}
