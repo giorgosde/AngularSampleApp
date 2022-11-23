@@ -4,7 +4,7 @@ apply filtering and navigate to the User details page
 when one is selected. This repo is meant to be public.
 
 #### Stack and Features:
-Angular 13 (migrated), Routing, Lazy Loading, Feature Module, Intercetor etc
+Angular 15 (migrated), Routing, Lazy Loading, Feature Module, Intercetor etc
 
 #### Run the app
 `npm install` -> `ng-serve`
